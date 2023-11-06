@@ -1,0 +1,5 @@
+Q. Why is it not a good idea for an identifier to contain
+more than one adjacent underscore (as in current__balance, for example)?
+
+A. 가독성 때문이다. 
+문법상 금지된 것은 아니지만, current__balance와 current___balance는 쉽게 구분할 수 없다...

@@ -1,0 +1,7 @@
+Q. How many tokens are there in the following statement?
+answer=(3*q-p*p)/3;
+
+A. 14
+token은 더 이상 나눌 수 없는 최소 단위로, 연산자 / 구분자 / identifier 등이 해당한다.
+위의 statement에는 다음 토큰들이 있다: 
+["answer", "=", "(", "3", "*", "q", "-", "p", "*", "p", ")", "/", "3", ";"]

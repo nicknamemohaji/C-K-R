@@ -1,0 +1,8 @@
+Q: Which of the following are not legal C identifiers?
+(a) 100_bottles
+(b) _100_bottles
+(c) one__hundred__bottles
+(d) bottles_by_the_hundred_
+
+A: (a)
+identifier는 1. character 또는 underscore로 시작해야 하며 2. 예약어(keyword)와 겹치면 안 된다.

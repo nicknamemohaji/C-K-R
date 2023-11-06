@@ -1,0 +1,12 @@
+Q. Which of the follwing are keywords in C?
+(a) for
+(b) If
+(c) main
+(d) printf
+(e) while
+
+A. (a), (e)
+
+(b)는 `if`와 비슷하지만, C는 대소문자를 구분하므로 예약어가 아니다.
+(c)는 링커에서 반드시 요구하는 심볼이지, 예약어가 아니다.
+(d)는 stdio.h의 표준함수 이름이라 예약어가 아니다.
