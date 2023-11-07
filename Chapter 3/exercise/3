@@ -1,0 +1,24 @@
+Q. For each of the following pairs of scanf format strings, 
+indicaste whether or not the two strings are equivalent.
+If they're not, show how they can be distinguished.
+
+(a) "%d"		vs	" %d"
+(b) "%d-%d-%d"	vs	"%d -%d -%d"
+(c) "%f" 		vs	"%f "
+(d) "%f,%f"		vs	"%f, %f"
+
+A.
+
+(a) 둘은 동치. whitespace 무시 이후 곧바로 같은 conversion이 오고 있으므로 같다.
+
+(b) 전자는 정수형 뒤에 반드시 -가 와야 하는 반면, 후자는 정수형과 - 사이에 공백을 허용한다.
+다음 입력은 다르게 처리된다: "1 -2-3"
+- 전자는 1까지만 처리하고 종료
+- 후자는 1, 2, 3 모두 처리
+
+(c) 전자는 실수형 입력([부호]실수표현[지수표현])만 있으면 되는데, 후자는 실수형 입력 뒤에 'nonblank' 입력을 요구한다.
+다음 입력은 다르게 처리된다: "1.2"
+- 전자는 1.2를 처리하고 함수 종료
+- 후자는 함수가 종료되지 않고 nonblank 입력이 올 때 까지 계속 입력받음
+
+(d) 둘은 동치. nonblank와 conversion 사이의 whitespace는 항상 허용된다.
