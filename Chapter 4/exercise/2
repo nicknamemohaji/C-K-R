@@ -1,0 +1,13 @@
+Q. If i and j are positive integers, does (-i)/j always have the same value
+as -(i/j)? Justify your answer.
+
+A. 
+(std=c89) Implementation-Defined Behavior이므로 말할 수 없다.
+
+(std=c99) 둘은 같다. 
+
+c99 표준은 몫의 절댓값이 최소인 값을 택한다. 따라서 나머지도 음수일 수 밖에 없다.
+i % j = l, i / j = k라고 하자. i = jk + l에서, -i = -jk - l이다.
+l < j이므로, abs(-l) < j이다. 따라서, -i를 j로 나눈 몫은 -k와 같다.
+
+이때, -k = -(i / j)와 같으므로, (-i) / j = -k = -(i / j)이다.

@@ -1,0 +1,45 @@
+[3] Q. What is the value of each of the following expressions in C89?
+(Give all possible values if an expression may have more than one vaule.)
+
+(a) 8 / 5
+(b) -8 / 5
+(c) 8 / -5
+(d) -8 / -5
+
+A.
+(a) 1
+(b) -1, -2
+(c) -1, -2
+(d) 1
+
+[4] Q. Repeat exercise 3 for C99.
+
+A.
+(a) 1
+(b) -1
+(c) -1
+(d) 1
+
+Note) 최신 표준인 C23도 C99와 같이 truncation toward zero 방식을 사용한다.
+
+[5] Q. What is the value of each of the following expressions in C89?
+(Give all possible values if an expression may have more than one vaule.)
+
+(a) 8 % 5
+(b) -8 % 5
+(c) 8 % -5
+(d) -8 % -5
+
+A. 
+(a) 3
+(b) -3, 2
+(c) -3, 2
+(d) 3
+
+[6] Q. Repeat exercise 5 for C99
+
+A.
+(a) 3
+(b) -3
+(c) -3
+(d) 3

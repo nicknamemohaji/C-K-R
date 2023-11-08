@@ -1,0 +1,30 @@
+[7] Q. The algorithm for computing the UPC check digit ends with the following steps:
+
+Subtract 1 from the total
+Compute the remainder when the adjusted total is divided by 10
+Subtract the remainder from 9
+
+It's tempting to try to symplify the algorithm by using these steps instead:
+
+Compute the remainder when the total is divided by 10
+Subtract the remainder from 10
+
+Why doesn't this technique work?
+
+A. 
+total - 1 = 10 * n + m (0 <= m < 10)일 때, 구하려고 하는 값은 9 - m이다.
+total = 10 * n + m + 1에서, total % 10 = (m + 1) % 10과 같다. 
+이때 m + 1 == 10이라면
+10 - 0 = 10이 되므로 안됨
+
+[8] Q. Would the upc.c program still work if the expression 9 - ((total - 1) % 10) were
+replaced by (10 - (total % 10)) % 10?
+
+A. 바꿀 수 있다.
+((total - 1) % 10)은 0 ~ 9의 값을 가지므로, 9 - (...)은 0 ~ 9의 값을 가진다. 
+따라서 9 - (...) mod 10과 (9 - (...))은 항상 같다.
+
+mod 10에서, 9 - (n - 1) % 10 = (9 - n + 1) = -n인데, 같은 군에서 (10 - (n % 10)) = -n이므로 둘은 같다.
+따라서 식을 바꿀 수 있다.
+
+사실, (-total) % 10으로 바꾸어도 충분하다! (* C99 이상일 때)

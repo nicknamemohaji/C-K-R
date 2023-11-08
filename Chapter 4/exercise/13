@@ -1,0 +1,7 @@
+Q. Only one of the expressions ++i and i++ is exactly the same as (i += 1);
+which is it? Justify your answer.
+
+A. ++i
+
+i에 1을 증가시킨다는 측면에서는 같지만, expression의 값이 다르다. 
+i += 1은 i+1을 갖는 반면에, i++는 expression 후에 ++연산하므로 i값을 갖는다.
