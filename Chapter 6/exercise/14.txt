@@ -1,0 +1,11 @@
+Q. Find the error in the followin program fragment and fix it.
+
+if (n % 2 == 0);
+	printf("n is even\n");
+
+A. if statement의 statement 자리에 null statement가 들어가 있다. 
+따라서 printf가 조건에 따라 출력되는 것이 아니라 항상 출력된다.
+
+다음과 같이 수정하면 된다:
+if (n % 2 == 0)
+	printf("n is even\n");

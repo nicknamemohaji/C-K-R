@@ -1,0 +1,15 @@
+Q. Which one of the following statements is not equivalent to the 
+other two (assuming the loop bodies are the same)?
+
+(a) for (i=0; i<10; i++) ...
+(b) for (i=0; i<10; ++i) ...
+(c) for (i=0; i++ < 10; ) ...
+
+A. c
+
+a와 b는 iteration이 끝난 후에 i에 1을 더한다. 각각 후위 연산자와 전위 연산자가 사용되었지만,
+그 값을 가지고 추가적인 계산을 하지 않기 때문에 i에 1을 더한다는 결과는 동일하다. 
+(control expression이 아니라 step expression이므로 expression의 실행결과는 중요하지 않음)
+
+반면, c는 control expression에서 i에 1을 더한다. loop body로 들어가기 전에 +1이 더해지기 때문에,
+나머지 둘 과는 다른 반복문이다.

@@ -1,0 +1,36 @@
+Q. Show how to replace a continue statement by an equivalent goto statement
+
+A. 라벨을 loop body 마지막에 넣어두면 된다. 단, 라벨은 혼자 존재 할 수 없으므로 null statement를 사용해줄 수 있다.
+
+1) for loop
+for (expr1; expr2; expr3)
+{
+	// loop body
+	do something...
+	if (condition)
+		goto FOR_CONT;
+	do something...
+	FOR_CONT: ;
+}
+
+2) while loop
+while (expr)
+{
+	// loop body
+	do something...
+	if (condition)
+		goto WHILE_CONT;
+	do something...
+	WHILE_CONT: ;
+}
+
+3) do loop
+do
+{
+	// loop body
+	do something...
+	if (condition)
+		goto DO_CONT;
+	do something...
+	DO_CONT: ;
+} while (expr);

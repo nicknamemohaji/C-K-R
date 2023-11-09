@@ -1,0 +1,14 @@
+Q. Which one of the following statements is not equivalent to the 
+other two (assuming the loop bodies are the same)?
+
+(a) while (i < 10) { ... }
+(b) for (; i < 10;) { ... }
+(c) do { ... } while (i < 10);
+
+A. c
+
+b는 initializer나 step expression이 없으므로, while(i < 10)인 a와 같은 반복문이다.
+
+그러나 c는 do statement이므로 a와는 다르다.
+ex) do statement는 선실행 후평가이므로 초기 i값이 0일 때 a,b는 아무 동작도 하지 않고
+statement가 종료되지만, c는 한 번의 iteration 실행된다

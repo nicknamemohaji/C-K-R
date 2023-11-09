@@ -2,9 +2,11 @@
 
 실행 가능한 명령이다. 일반적으로 C의 statement는 세미콜론으로 종료를 알린다. control-flow나 메모리 등, 상태 변화의 원인이다.
 
-- return statement(`return`)
-	- 함수에서 빠져나오는 명령
+- return statement
+	- `return ;`(void return) 또는 `return 값;` 형태
+	- Callee에서 빠져나오고 Caller로 돌아가는 명령
 	- 함수 형식에 따라 어떤 값을 '반환'할 지 명시
+	- 세미콜론이 필요한 statement라는 것을 주의 
 - expression statement
 	- expression을 statement처럼 사용하는 문법
 	- 모든 종류의 expression에서 사용 가능
@@ -45,13 +47,45 @@
 		- 하나의 statements 앞에 여러 개의 case가 있어도 된다
 
 - iteration statement
-	- for statement
+	- 반복된 작업을 수행한다. `control expression`을 평가하고(evaluate), 참이라면(= expression의 결과가 nonzero value) `loop body`를 실행하는 구조. 각각의 실행을 `iteration`이라 한다
 	- while statement
+		- `while (expression) statement` 구조
+		- control expression이 *실행 이전*에 계산된다
+		- 따라서 초기 evaluation에서 거짓 값이 나오면 loop body는 아예 실행되지 않을 수 있음
+		- loop body가 단일 statement이므로, 주로 compound statement를 사용해 여러 개의 statement들을 반복
 	- do statement
+		- `do statement while (expression);` 구조
+		- statetment *실행 이후*에 control expression이 계산된다
+		- 선동작 후평가 / 선평가 후동작이라는 것을 빼고는 while statement와 동일
+		- 선동작이므로 최소한 한 번의 loop body 실행을 보장
+		- 세미콜론이 필수적인 statement라는 것을 주의
+	- for statement
+		- `for (expr1; expr2; expr3) statement`
+		- '개수를 세는 반복 작업에 유리'
+		- 세 개의 expression으로 구성
+			1. initialization step(초기화 구문): 반복문 시작 전에 한 번 작동하는 expression
+			2. control expression(제어 구문): 각 iteration 직전에 평가되어서 다음 iteration을 실행할지, 아니면 여기서 종료할지 결정
+			3. 각 iteration이 끝난 후에 적용되는 expression. 주로 값을 변경하는 expression이 사용
+		- 각 expression은 생략할 수 있음. 그러나 세미콜론은 있어야 함
+			- 예) `for (; i<9; i++)`: 초기화 과정을 생략
+			- 예) `for (i=1; i<9; )`: step 과정을 생략
+			- control expression은 생략될 수 있지만, 이 경우 항상 참으로 평가. 따라서 `for (i=1; ;i++)`는 i의 값을 무한히 증가
+		- 각 expression이 어떤 변수를 사용하는지는 정해져 있지 않음; Chapter 6 예제의 square3.c 참고
+		- C99 이후부터는 expr1 자리에 declaration statement 사용 가능
+			- for *loop의 scope에서만 사용하는* 새로운 변수를 선언
+			- 기존에 동일한 이름의 변수가 있어도 새로운 변수를 사용, 기존 변수는 사용하지 않음
+				- ex) `int i=1; for (int i=0; i<9; i++) ; printf("%d", i);`의 출력 결과는 9가 아니라 1
 - jump statement
 	- break statement
+		- *가장 인접한* switch statement / for,while,do loop에서 빠져나오는 명령
+		- control을(instruction pointer?) break statement에서 loop/switch의 끝으로 옮긴다
 	- continue statement
+		- loop body의 나머지 부분을 *건너뛰고* 다음 iteration 직전으로 넘어가는 명령(지금 iteration을 끝내고, control expression을 평가하는 부분으로 넘어간다)
+		- control을 break statement에서 loop의 처음으로 옮긴다: 아직 loop에 control이 있음 = 반복을 끝내지 않는 statement
 	- goto statement
+		- (같은 함수 내의) 임의의 라벨로 점프하는 명령
+		- 쓰지마!
+		- break, continue, return statement를 **제한된 goto**라고 생각할 수 있음
 - compound statement
 	- `{ statement; statement; ... }`
 	- 중괄호로 statement를 묶은 statement
@@ -129,7 +163,15 @@ operator(연산자), constant(상수) 또는 variable(변수)가 expression을 �
 	- C 연산자 중 유일하게 3개의 operand 필요 -> ternary operator (삼항 연산자)
 	- `a ? b : c` 형태로 사용, a가 참이면 b expression / 거짓이면 c expression의 결과를 값으로 가짐
 	- 산술 연산자와 같은 방식으로 implicit type casting 발생
-- comma operator
+- comma operator(`,`)
+	- `expr1, expr2` 형태로 comma expression 구성
+	- expr1은 평가되지만(evaluated) 값을 무시
+	- expr2은 평가되고, 그 결과가 comma expression의 결과가 됨
+		- 예) `i=1, j=7`의 결과는 7
+		- 예) `i=1, i+2`의 결과는 2
+	- 우선순위가 가장 낮은 연산자
+	- left associative: LTR 순
+		- 예) `i=1, i+2, i+3` -> `(i=1, i+1), i+3` -> `2, i+3` -> 4
 - bitwise operator
 - address operator
 - indirection operator
