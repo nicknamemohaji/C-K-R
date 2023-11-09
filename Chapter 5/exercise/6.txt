@@ -1,0 +1,10 @@
+Q. Is the following if statement legal?
+
+if (n == 1 - 10)
+	printf("n is between 1 and 10\n");
+
+If so, what does it do when n is equal to 5?
+
+A. 문법적으로는 문제가 없지만, 제대로 작동하지 않는다. n이 5일 때에는 아무런 출력도 없다.
+
+우선순위상 1 - 10이 먼저 계산되므로, if문이 실제로 하고 있는 작업은 n이 -9인지 확인하는 것이다.

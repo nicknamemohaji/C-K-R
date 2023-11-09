@@ -1,0 +1,11 @@
+Q. Is the following if statement legal?
+
+if (n >= 1 <= 10)
+	printf("n is between 1 and 10\n");
+
+If so, what does it do when n is equal to 0?
+
+A. 문법상으로는 문제가 없지만 제대로 작동하지 않는다. n이 0일 때에도 출력한다. 
+
+if문의 조건식은 (n >= 1) <= 10으로 다시 쓸 수 있다.
+이때 n <= 1의 결과는 0 또는 1이므로, 이 if문은 항상 참이다. 

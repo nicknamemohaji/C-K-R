@@ -1,0 +1,6 @@
+Q. What does the following statement prirnt if i has the value 17?
+What doees it print if i has the value -17?
+
+printf("%d\n", i >= 0 ? i : -i);
+
+A. 17, 17. 위의 조건 연산자는 절댓값으로 만드는 연산을 수행한다.

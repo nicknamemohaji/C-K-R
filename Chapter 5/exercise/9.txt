@@ -1,0 +1,4 @@
+Q. Are the following if statements equivalent? If not, why not?
+(...)
+
+A. 둘은 같다.

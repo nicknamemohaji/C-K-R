@@ -1,0 +1,8 @@
+Q. The following if statement is unnecessarily complicated. Simplify is as much as possible.
+(...)
+
+A. teenager = (13 <= age && age <= 19) ? true: false;
+
+이때 true, false가 stdbool에 정의된 값 (각각 1과 0)이라고 한다면, 
+teenager = (13 <= age && age <= 19);
+로 줄일 수 있다.
