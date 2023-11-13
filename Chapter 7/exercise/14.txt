@@ -1,0 +1,12 @@
+Q. Does the following statement always compute the fractional part of f correctly
+(assuming that f and frac_part are float varaiables)?
+
+frac_part = f - (int) f;
+
+A. implementation-defined
+int가 f의 정수부를 모두 담을 수 있는지 알 수 없다. 
+
+int가 32비트, float가 IEEE 754상 single-precision이라 가정하면
+- int의 최대값은 2147483647 = 2.147e+9
+- float의 최대값은 3.40282e+038
+... 턱없이 모자라다

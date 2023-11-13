@@ -1,0 +1,18 @@
+Q. For each of the following items of data, specify which one of the types 
+char, short or long is the smallest one guarenteed to be large enough to store the item. 
+
+(a) Days in a month
+(b) Days in a year
+(c) Minutes in a day
+(d) Seconds in a day
+
+A.
+
+char: (a) 
+unsigned char는 8비트를 보장하므로, 255 이하의 수를 담을 수 있다.
+
+short: (b), (c)
+short는 16비트를 보장하므로, 65535 이하의 수를 담을 수 있다. 
+
+long: (d)
+86400은 65535보다 크므로, 32비트를 보장하는 long 이상 자료형에 담아야 한다.

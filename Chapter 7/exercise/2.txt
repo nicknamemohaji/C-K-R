@@ -1,0 +1,25 @@
+Q. Which of the following are not legal constants in C? Classify each legal constant as either integer or floating-point.
+
+(a) 010E2
+(b) 32.1E+5
+(c) 0790
+(d) 100_000
+(e) 3.978e-2
+
+A. 
+
+(a) floating-point (1000.00)
+[주의!!!! exponent가 사용되었으므로 base 8이 아니라 base10이다...]
+10 * 10 ^ 2 = 10 * 100 = 1000
+
+(b) floating-point (3210000.00)
+32.1 * 10 ^ 5 = 3210000
+
+(c) illegal
+접두사 0이 오면 8진수 표현인데, 9는 8진수 표현에서 사용 불가능
+
+(d) illegal
+decimal point가 없음
+
+(e) floating-point(0.03978)
+3.978 * 10 ^ -2 = 0.03978

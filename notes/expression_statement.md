@@ -2,11 +2,6 @@
 
 실행 가능한 명령이다. 일반적으로 C의 statement는 세미콜론으로 종료를 알린다. control-flow나 메모리 등, 상태 변화의 원인이다.
 
-- return statement
-	- `return ;`(void return) 또는 `return 값;` 형태
-	- Callee에서 빠져나오고 Caller로 돌아가는 명령
-	- 함수 형식에 따라 어떤 값을 '반환'할 지 명시
-	- 세미콜론이 필요한 statement라는 것을 주의 
 - expression statement
 	- expression을 statement처럼 사용하는 문법
 	- 모든 종류의 expression에서 사용 가능
@@ -86,11 +81,17 @@
 		- (같은 함수 내의) 임의의 라벨로 점프하는 명령
 		- 쓰지마!
 		- break, continue, return statement를 **제한된 goto**라고 생각할 수 있음
+	- return statement
+		- `return ;`(void return) 또는 `return 값;` 형태
+		- Callee에서 빠져나오고 Caller로 돌아가는 명령
+		- 함수 형식에 따라 어떤 값을 '반환'할 지 명시
+		- 세미콜론이 필요한 statement라는 것을 주의 
 - compound statement
 	- `{ statement; statement; ... }`
 	- 중괄호로 statement를 묶은 statement
 	- 여러 개의 statement를 하나의 compound statement로 취급한다
 - null statement
+- declaration statement
 
 # expression
 

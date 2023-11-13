@@ -1,0 +1,11 @@
+Q. Suppose that i is a variable of type int, f is a variable of type float, and d is a varaiable of type double.
+What is the type of the expression i * f / d?
+
+A.
+
+산술연산자 중 *, /는 left associative이므로 연산순서는 (i * f) / d이다.
+i * f에서 한쪽이 floating type이고 한쪽이 integer type이니 floating type으로 전환. 이때 single-precision으로 충분하므로 float * float의 연산이다.
+
+(i * f) / d에서, 양쪽이 floating type이지만 float / double의 연산이다. 이 경우 더 큰 쪽에 맞춰야 하므로 double로 형 변환
+
+따라서, 최종 결과는 double형이다.

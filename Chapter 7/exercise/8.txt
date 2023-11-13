@@ -1,0 +1,13 @@
+Q. Repeat Exercise 7, but give the quivalent hexademical escapes.
+
+(a) \b
+(b) \n
+(c) \r
+(d)	\t
+
+A.
+
+(a) \0x08
+(b) \0x0a
+(c) \0x0d
+(d) \0x09

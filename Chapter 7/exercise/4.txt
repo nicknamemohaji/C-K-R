@@ -1,0 +1,11 @@
+Q. If c is a variable of type char, which one of the following statement is illegal?
+(i has type int)
+
+(a) i += c;
+(b) c = 2 * c - 1;
+(c) putchar(c);
+(d) printf(c);
+
+A. d
+
+printf의 첫 인자는 const char *이기 때문에, 단순 char은 받지 못한다.

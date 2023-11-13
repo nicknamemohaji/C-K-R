@@ -1,0 +1,16 @@
+Q. Suppose that i is a variable of type int, f is a variable of type float, and d is a varaiable of type double.
+Explain what conversions take place during the execution of following statment:
+
+d = i + f;
+
+A.
+위 expression statement에서, assignment operator는 arithmetic operator보다 연산순위가 낮으므로
+d = (i + f);
+순으로 연산이 진행된다.
+
+arithmentic operator(+) 상에서 형이 다른 두 변수의 연산이 일어나므로 arithmentic conversion rule을 적용해야 한다.
+i는 integer type, f는 floating type이므로 i가 float으로 형변환되어 f와 더해진다: 
+d = (((float) i) + f);
+
+이때 연산 결과는 single precision인데, 대입 대상이 double precision이므로 double로 변환되어야 한다:
+d = (double) (((float) i) + f);
