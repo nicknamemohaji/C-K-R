@@ -117,6 +117,7 @@ operator(연산자), constant(상수) 또는 variable(변수)가 expression을 �
 		- left associative 연산자이므로 적용 순서는 LTR
 		- (`%` 연산을 제외하고) operand의 자료형이 달라도 허용. 실수형 vs 정수형이면 실수형으로 캐스팅되고, 정수형끼리에는 [conversion rank](https://stackoverflow.com/questions/46073295/implicit-type-promotion-rules)에 따라 큰 쪽으로 캐스팅됨
 - assignment operator (대입 연산자)
+	- 주의: declaration에 사용되는 ***initializer와 assignment operator는 다르다***
 	- simple assignment operator: `=`
 		- right associative
 		- `lvalue = rvalue` 형식 요구

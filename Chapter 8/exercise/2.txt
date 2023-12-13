@@ -1,0 +1,7 @@
+Q. The Q&A section shows how to use a letter as an array subscript. Describe how to use a digit (in character form) as a subscript.
+
+A. 
+
+ASCII나 표준 C처럼, 0-9까지의 문자들이 연속적으로 할당된 charset을 가정하면,
+
+ch - '0'을 하면 0~9의 offset이 계산된다. 이를 배열의 subscript로 사용할 수 있다.
