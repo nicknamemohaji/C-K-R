@@ -81,7 +81,8 @@
 1. operand 중 하나가 실수형이라면 실수형으로 전환한다
 	- integer types: float > double > long double
 	- float: float > double > long double
-2. operand에 실수형이 없으면 `integer promotion rule`을 적용한다(C99): int보다 작은 자료형은 int (또는 unsigned int)로 전환한다
+2. operand에 실수형이 없으면 `integer promotion rule`을 적용한다(C99)
+> `integer promotion rule`: int보다 작은 정수 자료형(`char`, `short` 등)은 int (또는 unsigned int)로 전환한다
 3. 그 후 `conversion rank`를 적용한다
 	- 각 정수형은 순위가 있다
 		1. long long, unsigned long long

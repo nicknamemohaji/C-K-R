@@ -82,22 +82,25 @@
 		- 쓰지마!
 		- break, continue, return statement를 **제한된 goto**라고 생각할 수 있음
 	- return statement
-		- `return ;`(void return) 또는 `return 값;` 형태
+		- `return {expression};` 형태 (void return의 경우 expression 없이 사용)
 		- Callee에서 빠져나오고 Caller로 돌아가는 명령
-		- 함수 형식에 따라 어떤 값을 '반환'할 지 명시
+		- 함수 형식에 따라 어떤 값을 '반환'할 지 명시 - 함수의 반환 자료형과 다르면 암묵적으로 형변환된다
+		- `void` 형의 함수에서는 생략할 수 있지만, 그 외에는 반드시 return statement가 있어야 한다. return 없이 함수가 끝에 도달하면 UB가 발생한다. 
 		- 세미콜론이 필요한 statement라는 것을 주의 
 - compound statement
 	- `{ statement; statement; ... }`
 	- 중괄호로 statement를 묶은 statement
 	- 여러 개의 statement를 하나의 compound statement로 취급한다
 - null statement
-- declaration statement
+- declaration/definition statement
 
 # expression
 
 특정한 값이다. 어떤 statement 안에서 사용된다. 
 
-operator(연산자), constant(상수) 또는 variable(변수)가 expression을 구성한다. 주의할 점은 연산자 각각이 하나의 expression일 수도 있다는 점이다.
+operator(연산자), constant(상수) 또는 variable(변수)가 expression을 구성한다. 함수 호출도 하나의 rvalue를 만드는(void function 제외) expression이다. 
+
+주의할 점은 연산자 각각이 하나의 expression일 수도 있다는 점이다.
 
 - arithmetic operator (산술 연산자)
 	- unary arithmentic operator 

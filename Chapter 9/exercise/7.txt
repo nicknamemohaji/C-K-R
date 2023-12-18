@@ -1,0 +1,26 @@
+Q. Suppose that the function f has the following definition
+	int f(int a, int b) { ... }
+
+Which of the following statements are legal? (Assume that i has type int and x has type double)
+
+(a) i = f(83, 12);
+(b) x = f(83, 12);
+(c) i = f(3.15, 9.28);
+(d) x = f(3.15, 9.28);
+(e) f(83, 12);
+
+A. 모두 문법적으로 오류가 없다. 다만, 
+
+(a): 가장 올바른 사용이다.
+
+(b): 정수형인 f의 반환값이 double로 변환되어 x에 저장된다. 
+
+(c): int argument 자리에 double이 들어갔으므로, default argument promotion에 의해 int로 변환되어 인자가 전달된다.
+이때 소수점은 소실되고, 정수부만 남아 인자로 전달된다.
+*  floating-point constant는 접미사 `f`를 쓰지 않으면 기본적으로 double 형으로 처리됨
+
+(d)
+- (c)와 같이 인자들이 argument promotion에 의해 정수로 전환되어 인자가 전달된다.
+- (b)와 같이 반환값이 double로 변환되어 저장된다.
+
+(e) 함수를 호출한 expression이 대입되지 않고 그냥 버려진다. 즉, expression statement 형태를 가진다. 

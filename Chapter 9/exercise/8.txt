@@ -1,0 +1,15 @@
+Q. Which of the following would be valid prototypes for a function that returns nothing and has one double parameter?
+
+(a) void f(double x);
+(b) void f(double);
+(c) void f(x);
+(d) f(double x);
+
+A. a, b가 가능하다.
+함수의 반환값이 없으므로 return-type은 void, 인자로 double형 하나를 받으므로 argument 자리에 하나의 double을 명시해야 한다.
+
+(b): 함수 프로토타입에는 인자의 변수명을 명시하지 않아도 된다. 
+
+(c): argument의 자료형을 명시하지 않으면 int로 간주되므로, double 인자를 받아야 하는 조건에 맞지 않는다.
+
+(d): return type을 명시하지 않으면 int로 간주되므로 void type이어야 하는 조건에 맞지 않는다.
