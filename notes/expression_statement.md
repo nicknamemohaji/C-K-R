@@ -1,6 +1,9 @@
 # statement
 
-실행 가능한 명령이다. 일반적으로 C의 statement는 세미콜론으로 종료를 알린다. control-flow나 메모리 등, 상태 변화의 원인이다.
+***실행 가능한*** 명령이다. control-flow나 메모리 등, 상태 변화의 원인이다.
+
+
+C의 statement는 세미콜론으로 종료를 알린다. 
 
 - expression statement
 	- expression을 statement처럼 사용하는 문법
@@ -88,11 +91,32 @@
 		- `void` 형의 함수에서는 생략할 수 있지만, 그 외에는 반드시 return statement가 있어야 한다. return 없이 함수가 끝에 도달하면 UB가 발생한다. 
 		- 세미콜론이 필요한 statement라는 것을 주의 
 - compound statement
-	- `{ statement; statement; ... }`
+	- `{ declarations... statements... }`
 	- 중괄호로 statement를 묶은 statement
 	- 여러 개의 statement를 하나의 compound statement로 취급한다
+	- 고유의 scope를 가지게 된다
+		- auto duration을 가진 변수는 이 compound statement 내에서만 존재한다 -> 지역변수를 다른 함수에서 참조할 수 없는 이유
+		- 바깥의 scope와 이름이 같은 scope를 선언하면, 이후 호출에서는 이 scope에서 선언된 변수가 우선한다. (ex. 전역변수와 이름이 같은 지역변수 선언)
+			- 이때 redefinition 오류도 뜨지 않는다. 
+		- scope, duration과 관련된 내용은 [해당 문서](scope_duration.md) 참고
 - null statement
-- declaration/definition statement
+
+
+- ~~declaration/definition statement~~ variable, function의 declaration, definition은 statement가 아니라 별도의 문법으로 취급된다.
+
+> Definition / Declaration은 *실행 가능한 명령*이 아니다. 이들 문법은 컴파일 타임에서 해석되어, 필요한 공간을 할당 / 대입한다.
+
+다음 코드를 생각해 보자:
+```c
+int g_global = 42;
+
+int main(void)
+{
+	int local = 42;
+}
+```
+위 코드의 실행 과정을 따라가면, 프로그램 실행 직후 entry point에서 `g_global`을 선언하고 값을 할당하게 된다. 
+이때 *프로그램의 entry point*인 main함수는 아직 실행되지 않았다는 것에 주목하자. 만약 variable declaration이 statement라면, **아직 실행 흐름이 시작되지 않았는데 어떻게 statement를 실행해서 변수를 선언할 수 있었을까?** 
 
 # expression
 
@@ -182,6 +206,9 @@ operator(연산자), constant(상수) 또는 variable(변수)가 expression을 �
 - indirection operator
 - sizeof operator
 - 구조체 관련 연산자
+- array subscription
+- function call
+- compund literal
 
 > lvalue: 대입 연산자의 좌변에 오는 값으로, 메모리 상의 객체이다.(해당 expression/statment 이후에도 값이 살아남아 전해진다) C언에서는 변수만 가능하다. 
 

@@ -1,0 +1,63 @@
+Q. The following program outline shows only function definitions and variable declarations
+
+```c
+int b, c;
+
+void f(void)
+{
+    int b, d;
+}
+
+void g(int a)
+{
+    int c;
+    {
+        int a, d;
+    }
+}
+
+int main(void)
+{
+    int c, d;
+}
+```
+
+For each following scopes, list all variable and parameter names visible in that scope.
+If there's more thatn one variable or parameter with the same name, indicate which one is visible:
+
+(a) The f function
+(b) The g function
+(c) The block in which a and d is declared
+(d) The main function
+
+A.
+
+(a)
+- int c: external(global) variable
+- int b: variable defined inside function body
+(external variable b와 심볼이 같지만, 이 scope 내에서 define된 local variable(auto duration; function scope)을 사용)
+- int d: variable defined inside function body
+
+(b)
+- int b: external variable
+- int a: parameter
+- int c: variable defined inside function body
+(external variable c와 심볼이 같지만, 이 scope 내에서 define된 local variable을 사용)
+- function f: external function defined/declared prior to this function
+
+(c)
+- int b: external variable
+- int d: variable defined inside block(compound statement)
+- int c: variable defined inside function body
+(external variable c와 심볼이 같지만, 이 function scope 내에서 define된 c를 사용)
+- int a: variable defined inside block(compound statement)
+(local variable a와 심볼이 같지만, 이 block scope 내에서 define된 a 사용)
+- function f: external function defined/declared prior to this function
+
+(d)
+- int b: external variable
+- int d: local variable 
+- int c: variable defined inside function body
+(external variable c와 심볼이 같지만, 이 scope 내에서 define된 local variable을 사용)
+- function f: external function defined/declared prior to this function
+- function g: external function defined/declared prior to this function

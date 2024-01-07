@@ -1,0 +1,56 @@
+Q. The following program outline show only function definitions and variable declarations.
+
+```c
+int a;
+
+void f(int b)
+{
+    int c;
+}
+
+void g(void)
+{
+    int d;
+    {
+        int e;
+    }
+}
+
+int main(void)
+{
+    int f;
+}
+```
+
+For each following scopes, list all variable and parameter names visible in that scope:
+
+(a) The f function
+(b) The g function
+(c) The block in which e is declared
+(d) The main function
+
+A.
+
+(a) 
+- int a: external(global) variable
+- int b: parameter
+- int c: defined inside function body
+
+(b)
+- int a: external variable
+- int d: defined inside function body
+- int e: defined inside compound statement, in function body. 
+(단, compound statement 안쪽에서만 scope가 미침. compound 바깥쪽 scope, 즉 function body *바로 안쪽*에서는 e를 사용할 수 없음.)
+- function f: external function defined/declared prior to this function
+
+(c)
+- int a: external variable
+- int d: defined inside function body
+- int e: defined inside compound statement(block)
+- function f: external function defined/declared prior to this function
+
+(d)
+- int a: external variable
+- int f: defined inside function body
+(같은 심볼인 function f대신 이 scope에서는 integer variable f를 사용)
+- function g: external function defined/declared prior to this function

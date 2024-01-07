@@ -1,0 +1,29 @@
+Q. Suppose that a program has only one function (main). How many different variables named i could this program contain?
+
+A. 답할 수 없다.
+
+우선 global(external) variable로 하나를 가질 수 있고,
+main function scope 전체에서 local variable로 하나를 가질 수 있다.
+
+그러나, compound statement를 function body 내에서 계속 만들 수 있고, 이렇게 만들어진 block(compound statement)는 개별적이고 독립된 scope를 갖게 된다.
+독자적인 scope마다 변수 선언이 가능하므로, 각각의 scope에서 i라는 이름의 변수를 선언할 수 있다.
+
+다음 코드는 문법상 문제가 없다.
+```c
+int i;
+
+int main(void)
+{
+    int i;
+    {
+        int i;
+        {
+            int i;
+        }
+    }
+    {
+        int i;
+    }
+}
+```
+이런 식으로 계속해서 scope를 만들다 보면, 각 scope별로 다른 i를 사용할 수 있다.

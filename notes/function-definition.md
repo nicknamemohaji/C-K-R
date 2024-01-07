@@ -3,9 +3,7 @@
 함수 선언은 다음 형태를 가진다. 
 ```
 return-type function-name (parameters)
-{
-	body (declarations, statements)
-}
+	compound statement -> { declarations statements }
 ```
 - `return-type`: 함수 반환값의 자료형을 지정한다
 	- 배열은 반환할 수 없다
