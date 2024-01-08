@@ -1,0 +1,29 @@
+Q. If i is a variable and p points to i, which of the following expressions are aliases for i?
+
+(a) *p
+(b) *&p
+(c) *i
+(d) *&i
+(e) &p
+(f) &i
+(g) &*i
+
+A. a, d
+상황에 따라 g도 가능하다.
+
+(a) 가장 일반적인 포인터 문법이다. i를 가리키고 있는 포인터 p를 역참조하므로, i와 같다. 
+
+(b) unary operator의 연산 순서를 생각해보면, *&p는 *(&p)와 같다.
+즉, 포인터 p에 대한 주소를 다시 역참조하므로, p가 가리키는 i가 아니라 p와 같다.
+
+(c) (i가 포인터라는 가정 하에) i가 가리키고 있는 값을 역참조한다. 
+
+(d) unary operator의 연산 순서를 생각해보면, *&i는 *(&i)와 같다.
+이때 &i는 p와 같으므로, *&i = *p = (a)이므로 이 expression의 결과는 i와 같다.
+
+(e) p의 주소를 참조
+
+(f) i의 주소를 참조하므로, 이는 p와 같다.
+
+(g) i를 역참조 후 다시 참조하고 있다. 만약 i가 포인터라면 이 결과는 i와 같지만, 
+i가 포인터가 아니라면 undefined behavior이다.

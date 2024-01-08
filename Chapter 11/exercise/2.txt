@@ -1,0 +1,21 @@
+Q. If i is an int variable and p and q are pointers to int, which of the following assignments are legal?
+
+(a) p = i;
+(b) *p = &i;
+(c) &p = q;
+(d) p = &q;
+(e) p = *&q;
+(f) p = q;
+(g) p = *q;
+(h) *p = q;
+(i) *p = *q;
+
+A. e, f, i
+
+포인터와 일반 자료형 사이에서는 implicit type casting이 일어나지 않는다.
+연산자 우선순위에 따라 unary operator가 assignment operator보다 우선하므로, 
+(unary operator의 실행 결과 생기는) lvalue들의 자료형을 잘 따지면 된다.
+
+- *p, *q -> int
+- &i, *&q -> int *
+- &p, &q -> int **
