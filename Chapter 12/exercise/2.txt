@@ -1,0 +1,14 @@
+Q. Suppose that high, low, and middle are all pointer variables of the same type, 
+and that low and high point to elements of an array. 
+
+Why is the following statement illegal, and how could it be fixed?
+
+    middle = (low + high) / 2;
+
+A.
+
+포인터 값 끼리의 덧셈은 허용되지 않기 때문이다. 
+(long 자료형으로 캐스팅해서 더한다면 연산은 허용되지만, 오버플로우가 발생한다면 이상한 주소를 가리키게 될 수도 있다.)
+
+다음과 같이 고칠 수 있다: 
+middle = low + (high - low) / 2;
